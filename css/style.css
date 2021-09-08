@@ -54,7 +54,11 @@ nav a:link, a:visited {
 nav .active, a:hover {
 	color: #000000;
 	background-color: #80b918;
-	border: #80b918;
+}
+
+nav .active, a:hover, a:link, a:visited  {
+	border: 1px solid none;
+	border-radius: 10px;
 }
 
 /* Formatting the Main body of the webpage */
@@ -67,12 +71,10 @@ main {
 	text-align: justify;
 }
 
-.aboutme {
-	margin-top: 2em;
-	float: left;
+.about-me {
 	display: inline-block;
-	width: 50%;
 	height: auto;
+	margin-right: 1.5em;
 }
 
 /* Formatting the Dashboard Table */
@@ -118,22 +120,32 @@ tr:nth-child(odd) {
 	display: block;
 	float: left;
 	position: relative;
-	margin-left: 2em;
-	margin-right: 10%
+	margin-left: 1em;
+	margin-right: 7%;
+	}
+
+.imgcontainer:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.middelburg-view, .cork-view {
+	display: block;
+	margin: 2em auto 0 auto;
+	padding: 1px;
+	max-width: 45%;	
+	position: relative;
+	float: left;
+	clear: right;
 }
 
 .middelburg-view {
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 1.5em;
 }
 
-.middelburg-view img {
-	display: block;
-	margin: 2em auto 0 auto;
-	min-width: 50%;
-	max-width: 30%;
-	max-height: auto;
-	position: relative;
+.cork-view {
+	margin-left: 1.5em;
 }
 
 /* Formatting the page Footer*/
@@ -144,6 +156,7 @@ footer {
 
 footer {
 	margin-top: 2em;
+	padding: 1em;
 	text-align: center;
 	font-size: 14px;
 }	

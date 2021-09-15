@@ -42,7 +42,7 @@ figcaption .menu {
 	font-size: 28px;
 	margin: 1.75em;
 }
-/* Formatting the Navigation bar */		
+/* Formatting the Navigation bar/links */		
 nav {
 	display: flex;
 	margin: 1em;
@@ -55,8 +55,8 @@ nav li {
 	/* Sorting the list horizontally */	
 	display: inline;
 }
-/* Changing the list's links into navigation buttons */
-nav a:link, nav a:visited {
+/* Changing the navigation links into navigation buttons */
+nav a:link, nav a:visited, .go-back{
 	display: inline-block;
 	text-decoration: none;
 	font-size: 24;
@@ -66,11 +66,14 @@ nav a:link, nav a:visited {
 	color: #FFF;
 	background-color: #6DA33E;
 }
-nav a:hover, nav .active, .dropdown-content a:hover {
-	color: #000000;
+nav a:hover, nav .active, .dropdown-content a:hover, .go-back:hover {
+	color: #000;
 	background-color: #80b918;
 }
-nav a:link, nav a:visited,nav .active, nav a:hover  {
+.dropdown-content a:hover{
+	font-weight: bold;
+}
+nav a:link, nav a:visited, nav .active, nav a:hover, .go-back:link, .go-back:hover  {
 	border: 1px solid none;
 	border-radius: 10px;
 }
@@ -80,7 +83,7 @@ aside {
 }
 aside a {
 	float: left;
-	font-size: 12px;
+	font-size: 16px;
 	color: #FFF;
 	text-align:center;
 	padding: 14px 16px;
@@ -126,32 +129,26 @@ aside a {
 main {
 	margin: auto;
 	padding: 20px 1em 20px 1em;
-	background-color: #EBEBEB;
+	background-color: #F5F5F5;
 	width: 70%;
 	text-align: justify;
 }
 #home-list{
 	padding-left: 20px;
 }
-.about-me, .cork {
+.about-me, .cork, .hobbies {
 	display: block;
 	float:left;
 	height: auto;
-	margin-right: 1.5em;
-}
-
-.cork, .hobbies{
-	display: block;
 	clear: both;
 }
-.cork:after, .hobbies:after {
+.cork:after, .hobbies:after, .assistant-fix:after {
 	content: "";
 	display: table;
 	clear: both;
 }
 /* Styling the flexbox layout for the FAQ page */
-.container {
-
+.container, .swot-box {
 	height: auto;
 	display: flex;
 	flex-direction: row;
@@ -159,7 +156,7 @@ main {
 	flex-wrap: wrap;
 	margin: auto;
 }
-.box {
+.box, .s-box, .w-box, .o-box, .t-box  {
 	border: 1px solid #fff;
 	width: 45%;
 	height: auto;
@@ -169,7 +166,7 @@ main {
 	clear: right;
 	border-radius: 0 7px 7px 7px;
 }
-.box h3 {
+.box h3, .s-box h3, .w-box h3, .o-box h3, .t-box h3 {
 	text-align: center;
 	margin-bottom: 2px;
 }
@@ -177,7 +174,7 @@ main {
 	text-align: justify;
 	padding: 0;
 }
-.box li, .cork li, .hobbies li {
+.box li, .cork li, .hobbies li, .s-box li, .w-box li, .o-box li, .t-box li {
 	margin-left: 15px;
 }
 .yellow {
@@ -189,21 +186,76 @@ main {
 .pink {
 	background-color: #ff7eb9;
 }
+/* Formatting flexbox for the SWOT blog post */
+.s-box h3 {
+	tex
+}
+/* Formatting the flexbox in the "Coding Languages" blog post */
+.img-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+.img-box {
+	height: 300px;
+	width: 300px;
+	margin: 20px;
+	padding: 10px;
+}
+.img-box img {
+	display: block;
+	width: 100%;
+	background-color: #fff;
+	clear: both;
+	border: 1px solid none;
+	border-radius: 5px;
+}
+.img-box img:hover {
+	border: 2px solid black;
+}
+/* Formatting blog post layouts */
+.blog-title {
+	margin-bottom: 10px;
+}
+.blog-title a{
+	text-decoration: none;
+	color: #000;
+}
+.blog-post{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+.blog-post, .blog-post p{
+	padding: 20px;
+	border-radius: 10px;
+}
+.blog-link {
+	border: 2px solid #fff;
+}
+.blog-post p,.blog-link:hover {
+	background-color: #fff;	
+}
+.blog-link:hover {
+	border: 2px solid black;
+}
 /* Formatting the Dashboard Table */
 table {
 	border-collapse: collapse;
 	width: 100%;
 	text-align: center;
-	border: 1px solid #fff;
 	overflow: auto;
 }
 td, th {
-	border: 1px solid none;
 	padding: 8px;
 	margin: auto;
 }
 tr:nth-child(odd) {
   background-color: #FFF;
+}
+td, th, table {
+	border: 1px solid #fff;
 }
 .completed {
 	background-color: #58D68D;
@@ -218,19 +270,25 @@ tr:nth-child(odd) {
 	font-weight: bold;
 }
 #current-progress{
-	margin-top: 1.5em;
+	margin: 1em auto;
+}
+#current-progress h2{
+	margin: .5em;
 	text-align: center;
 }
-#current-progress h3{
-	margin: .5em;
+#current-ec {
+	float: left;
+	margin-left: 16.5%;
+}
+#end-ec {
+	float: right;
 }
 progress[value]{
 	width: 100%;
 	height: 30px;
-	background-color: green;
 	margin-bottom: .5em;
 }
-/* Formatting the website images */
+/* Formatting the main website images & media */
 .profile {
 	display: block;
 	position: relative;
@@ -244,7 +302,7 @@ progress[value]{
 	float: right;
 	padding-left: 20px;
 	height: 30%;
-	margin-bottom: 10px;
+	margin: 10px auto;
 }
 .imgcontainer{
 	display: flex;	
@@ -256,10 +314,21 @@ progress[value]{
 	position: relative;
 }
 .spotify {
+	margin-top: 50px;
+	text-align: center;
+}
+#spotify-player {
 	margin-top: 10px;
 }
-/* Formatting the page Footer*/
+.assistant{
+	display: flex;
+	margin-top: 20px;
+	width: 300px;
+	height: 400px;
+	float: center;
+}
 
+/* Formatting the page Footer*/
 footer {
 	margin-top: 2em;
 	padding: 1em;

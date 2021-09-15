@@ -4,9 +4,10 @@
 		padding: 0;	}
 html {
 		font-size: 100%;
-	}		
+	}
 body {
 	font-family: Arial, Helvetica, sans-serif;
+	background-color; #fff
 }	
 /* Formatting the page Header */	
 header {
@@ -18,12 +19,17 @@ figure {
 	position: absolute;
 	left: 0;
 	top: 0;
+	width: 1%;
 }
 figcaption {
 	float: left;
 	clear: both;
 	font-size: 14px;
-	padding-left: 25px;
+	width: 100px;
+}
+figcaption .menu {
+	width: 30%;
+	margin-left: 1em;	
 }
 .logo {
 	float: left;
@@ -38,8 +44,12 @@ figcaption {
 }
 /* Formatting the Navigation bar */		
 nav {
+	display: flex;
 	margin: 1em;
 	text-align: center;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 nav li {
 	/* Sorting the list horizontally */	
@@ -47,18 +57,20 @@ nav li {
 }
 /* Changing the list's links into navigation buttons */
 nav a:link, nav a:visited {
+	display: inline-block;
 	text-decoration: none;
 	font-size: 24;
-	margin-right: 0.4em;
+	margin-top: 0.5em;
+	margin-right: 0.5em;
 	padding: .6em .4em;
 	color: #FFF;
 	background-color: #6DA33E;
 }
-nav .active, nav a:hover {
+nav a:hover, nav .active, .dropdown-content a:hover {
 	color: #000000;
 	background-color: #80b918;
 }
-nav .active, nav a:hover, nav a:link, nav a:visited  {
+nav a:link, nav a:visited,nav .active, nav a:hover  {
 	border: 1px solid none;
 	border-radius: 10px;
 }
@@ -91,12 +103,11 @@ aside a {
 .dropdown-content{
 	display: none;
 	position: absolute;
-	left: 10;
-	top: 135px;
+	left: 40px;
+	top: 150px;
 	background-color: #0096da;
 	min-width: 160px;
 	z-index: 1;
-	border-radius: 10px;
 }
 .dropdown-content a {
 	float: none;
@@ -105,24 +116,78 @@ aside a {
 	display: block;
 	text-align: center
 }
+.dropdown-content, .dropdown-content a {
+	border-radius: 0 7px 7px 7px;
+}
 .dropdown:hover .dropdown-content {
   display: block;
 }
 /* Formatting the Main body of the webpage */
 main {
-	margin: 2em auto;
+	margin: auto;
 	padding: 20px 1em 20px 1em;
-	background-color: #F5F5F5;
+	background-color: #EBEBEB;
 	width: 70%;
 	text-align: justify;
 }
 #home-list{
 	padding-left: 20px;
 }
-.about-me {
-	display: inline-block;
+.about-me, .cork {
+	display: block;
+	float:left;
 	height: auto;
 	margin-right: 1.5em;
+}
+
+.cork, .hobbies{
+	display: block;
+	clear: both;
+}
+.cork:after, .hobbies:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+/* Styling the flexbox layout for the FAQ page */
+.container {
+
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	margin: auto;
+}
+.box {
+	border: 1px solid #fff;
+	width: 45%;
+	height: auto;
+	margin: 1em;
+	padding: 10px;
+	float: left;
+	clear: right;
+	border-radius: 0 7px 7px 7px;
+}
+.box h3 {
+	text-align: center;
+	margin-bottom: 2px;
+}
+.box p {
+	text-align: justify;
+	padding: 0;
+}
+.box li, .cork li, .hobbies li {
+	margin-left: 15px;
+}
+.yellow {
+	background-color: #feff9c;
+}
+.blue {
+	background-color: #7afcff;
+}
+.pink {
+	background-color: #ff7eb9;
 }
 /* Formatting the Dashboard Table */
 table {
@@ -140,9 +205,6 @@ td, th {
 tr:nth-child(odd) {
   background-color: #FFF;
 }
-tr:hover{
-	border-bottom: 1px solid
-}
 .completed {
 	background-color: #58D68D;
 	font-weight: bold;
@@ -155,39 +217,53 @@ tr:hover{
 	background-color: #E74C3C;
 	font-weight: bold;
 }
+#current-progress{
+	margin-top: 1.5em;
+	text-align: center;
+}
+#current-progress h3{
+	margin: .5em;
+}
+progress[value]{
+	width: 100%;
+	height: 30px;
+	background-color: green;
+	margin-bottom: .5em;
+}
 /* Formatting the website images */
 .profile {
 	display: block;
-	float: left;
 	position: relative;
-	margin-left: 1em;
-	margin-right: 7%;
-}
-.imgcontainer{
-	display: block;
-	margin: auto;	
-}
-.middelburg-view, .cork-view {
-	display: block;
-	margin: 2em auto 0 1.5em;
-	padding: 1px;
-	max-width: 45%;	
-	position: relative;
+	margin: 0 5% 2% 2%;
+	height: 30%;
+	width: auto;
 	float: left;
 	clear: right;
 }
-.imgcontainer:after {
-	content: "";
-	display: table;
-	clear: both;
+.cork-map, .lvo-display {
+	float: right;
+	padding-left: 20px;
+	height: 30%;
+	margin-bottom: 10px;
+}
+.imgcontainer{
+	display: flex;	
+}
+.middelburg-view, .cork-view {
+	flex: 40%;
+	margin: 1em;
+	width: 30%;	
+	position: relative;
+}
+.spotify {
+	margin-top: 10px;
 }
 /* Formatting the page Footer*/
-footer {
-	clear: both;
-}
+
 footer {
 	margin-top: 2em;
 	padding: 1em;
 	text-align: center;
 	font-size: 14px;
+	clear: both;
 }	

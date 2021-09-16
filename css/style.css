@@ -4,7 +4,7 @@
 		padding: 0;	}
 html {
 		font-size: 100%;
-	}
+}
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	background-color; #fff
@@ -174,7 +174,7 @@ main {
 	text-align: justify;
 	padding: 0;
 }
-.box li, .cork li, .hobbies li, .s-box li, .w-box li, .o-box li, .t-box li {
+.box li, .cork li, .hobbies li, .s-box li, .w-box li, .o-box li, .t-box li, article li {
 	margin-left: 15px;
 }
 .yellow {
@@ -186,25 +186,29 @@ main {
 .pink {
 	background-color: #ff7eb9;
 }
-/* Formatting flexbox for the SWOT blog post */
-.s-box h3 {
-	tex
-}
 /* Formatting the flexbox in the "Coding Languages" blog post */
-.img-container {
+.img-container, .company-slides, .oracle {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
 }
-.img-box {
+.img-box{
 	height: 300px;
 	width: 300px;
 	margin: 20px;
 	padding: 10px;
 }
-.img-box img {
+.slide-box {
+	width: 25%;
+	margin: 30px;
+	padding: 20px;
+}
+.slide-box:hover{
+	flex-grow: 2;
+}
+.img-box img, .slide-box img, .oracle img {
 	display: block;
 	width: 100%;
 	background-color: #fff;
@@ -212,8 +216,14 @@ main {
 	border: 1px solid none;
 	border-radius: 5px;
 }
-.img-box img:hover {
+.img-box img:hover, .slide-box img:hover, .oracle img:hover {
 	border: 2px solid black;
+}
+.oracle img, .slide-box img {
+	width: 90%;
+	object-fit: contain;
+	margin: 20px;
+	padding: 20px;
 }
 /* Formatting blog post layouts */
 .blog-title {
@@ -239,6 +249,9 @@ main {
 }
 .blog-link:hover {
 	border: 2px solid black;
+}
+.pending {
+	margin: auto;
 }
 /* Formatting the Dashboard Table */
 table {
@@ -325,9 +338,7 @@ progress[value]{
 	margin-top: 20px;
 	width: 300px;
 	height: 400px;
-	float: center;
 }
-
 /* Formatting the page Footer*/
 footer {
 	margin-top: 2em;

@@ -1,15 +1,24 @@
 @charset "UTF-8";
 * {
 		margin: 0;
-		padding: 0;	}
-html {
-		font-size: 100%;
+		padding: 0;	
 }
+@font-face {
+	font-family: 'UncialAntiqua-9mR7';
+	src: url('resources/fonts/UncialAntiqua-9mR7.ttf');
+}
+html {
+	font-size: 100%;
+}
+/* Formatting the page Header */
+h1 {
+	font-family: UncialAntiqua-9mR7;
+	font-weight: normal;
+}	
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	background-color; #fff
+	background-color: #fff;
 }	
-/* Formatting the page Header */	
 header {
 	text-align: center;
 	font-size: 36px;
@@ -19,7 +28,7 @@ figure {
 	position: absolute;
 	left: 0;
 	top: 0;
-	width: 1%;
+	width: auto;
 }
 figcaption {
 	float: left;
@@ -39,11 +48,11 @@ figcaption .menu {
 } 
 /* Specific page Header formatting for the FAQ page*/	
 .faq {
-	font-size: 28px;
+	font-size: 24px;
 	margin: 1.75em;
 }
 /* Formatting the Navigation bar/links */		
-nav {
+nav, .cork-places {
 	display: flex;
 	margin: 1em;
 	text-align: center;
@@ -51,12 +60,12 @@ nav {
 	justify-content: center;
 	flex-wrap: wrap;
 }
-nav li {
+nav li, .cork-places li {
 	/* Sorting the list horizontally */	
 	display: inline;
 }
 /* Changing the navigation links into navigation buttons */
-nav a:link, nav a:visited, .go-back{
+nav a:link, nav a:visited, .go-back, .cork-places a:link, .cork-places a:visited {
 	display: inline-block;
 	text-decoration: none;
 	font-size: 24;
@@ -66,16 +75,20 @@ nav a:link, nav a:visited, .go-back{
 	color: #FFF;
 	background-color: #6DA33E;
 }
-nav a:hover, nav .active, .dropdown-content a:hover, .go-back:hover {
+nav a:hover, nav .active, .dropdown-content a:hover, .go-back:hover, .cork-places a:hover {
 	color: #000;
 	background-color: #80b918;
 }
-.dropdown-content a:hover{
-	font-weight: bold;
-}
-nav a:link, nav a:visited, nav .active, nav a:hover, .go-back:link, .go-back:hover  {
+nav a:link, nav a:visited, nav .active, nav a:hover, .go-back:link, .go-back:hover, .cork-places a:link, .cork-places a:visited  {
 	border: 1px solid none;
 	border-radius: 10px;
+}
+.cork-places{
+	font-size: 100%;
+}
+.cork-places li {
+	list-style-type: none;
+	font-size: 30%;
 }
 /* Formatting the Aside dropdown menu */
 aside {
@@ -109,7 +122,7 @@ aside a {
 	left: 40px;
 	top: 150px;
 	background-color: #0096da;
-	min-width: 160px;
+	min-width: 370px;
 	z-index: 1;
 }
 .dropdown-content a {
@@ -125,27 +138,136 @@ aside a {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.dropdown-content a:hover{
+	font-weight: bold;
+}
 /* Formatting the Main body of the webpage */
 main {
 	margin: auto;
-	padding: 20px 1em 20px 1em;
+	padding: 20px 1em;
 	background-color: #F5F5F5;
-	width: 70%;
+	width: 90%;
 	text-align: justify;
 }
-#home-list{
-	padding-left: 20px;
-}
-.about-me, .cork, .hobbies {
-	display: block;
-	float:left;
-	height: auto;
-	clear: both;
-}
-.cork:after, .hobbies:after, .assistant-fix:after {
+.assistant-fix:after {
 	content: "";
 	display: table;
 	clear: both;
+}
+/* Grid details */
+article li {
+	margin-left: 2%;
+}
+.grid-container {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 10% 80% 10%;
+	grid-template-rows: auto auto auto auto;
+	grid-template-areas:
+		"aside header ."
+		". nav ."
+		". article ."
+		"footer footer footer";
+}
+.aside {
+	grid-area: aside;
+}
+.header {
+	grid-area: header;
+}
+.nav {
+	grid-area: nav;
+}
+.index-article, .profile-article, .faq-article, .dashboard-article, .blog-article {
+	grid-area: article;
+}
+.footer {
+	grid-area: footer;
+}
+.index-article article {
+	display: grid;
+	grid-template-columns: 59% 40%;
+	grid-gap: 0.5%;
+	justify-items: center;
+	align-items: center;
+}
+.index-article article {
+	grid-template-rows: auto auto;
+	grid-template-areas:
+	"index-content cork-img"
+	"index-content2 middelburg-img";
+}
+.profile-article article {
+	display: grid;
+	grid-template-columns: 60% 40%;
+	grid-template-rows: repeat(3, auto);
+	grid-template-areas:
+	"about-me about-me"
+	"about-cork cork-map"
+	"hobbies lvo-display";
+	justify-items: center;
+	align-items: center;
+}
+.profile-article article .about-me {
+	display: grid;
+	grid-template-columns: 30% 60%;
+	grid-gap: 0.5%;
+	grid-template-areas:
+	"profile intro";
+	justify-items: center;
+	align-items: center;
+}
+.index-content{
+	grid-area: index-content;
+}
+.cork-img {
+	grid-area: cork-img;
+	object-fit: contain;
+}
+.index-content2 {
+	grid-area: index-content2;
+}
+.middelburg-img{
+	grid-area: middelburg-img;
+	object-fit: contain;
+}
+.about-me {
+	grid-area: about-me;
+}
+.intro {
+	grid-area: intro;
+}
+.profile {
+	grid-area: profile;
+}
+.profile img {
+	height: 80%;
+	width: auto;
+}
+.about-cork {
+	grid-area: about-cork;
+	padding-left: 2em;
+}
+.cork-map {
+	grid-area: cork-map;
+	justify-content: center;
+	object-fit: contain;
+	justify-items: center;
+	align-items: center;
+}
+.hobbies{
+	grid-area: hobbies;
+	padding-left: 2em;
+}
+.lvo-display {
+	grid-area: lvo-display;
+	justify-content: center;
+	object-fit: contain;
+	margin-bottom: 1em;
+}
+.hobbies iframe {
+	display: block;
+	margin: 0 auto;
 }
 /* Styling the flexbox layout for the FAQ page */
 .container, .swot-box {
@@ -201,12 +323,12 @@ main {
 	padding: 10px;
 }
 .slide-box {
-	width: 25%;
+	width: 30%;
 	margin: 30px;
 	padding: 20px;
 }
 .slide-box:hover{
-	flex-grow: 2;
+	flex-grow: 1;
 }
 .img-box img, .slide-box img, .oracle img {
 	display: block;
@@ -242,7 +364,7 @@ main {
 	border-radius: 10px;
 }
 .blog-link {
-	border: 2px solid #fff;
+	border: 2px solid #c7eea6;
 }
 .blog-post p,.blog-link:hover {
 	background-color: #fff;	
@@ -296,48 +418,33 @@ td, th, table {
 #end-ec {
 	float: right;
 }
-progress[value]{
+progress[value] {
 	width: 100%;
 	height: 30px;
 	margin-bottom: .5em;
+	background-color: #6DA33E;
 }
 /* Formatting the main website images & media */
-.profile {
-	display: block;
-	position: relative;
-	margin: 0 5% 2% 2%;
-	height: 30%;
-	width: auto;
-	float: left;
-	clear: right;
-}
-.cork-map, .lvo-display {
-	float: right;
-	padding-left: 20px;
-	height: 30%;
-	margin: 10px auto;
-}
-.imgcontainer{
-	display: flex;	
-}
-.middelburg-view, .cork-view {
-	flex: 40%;
-	margin: 1em;
-	width: 30%;	
-	position: relative;
-}
-.spotify {
-	margin-top: 50px;
-	text-align: center;
-}
-#spotify-player {
-	margin-top: 10px;
-}
 .assistant{
 	display: flex;
 	margin-top: 20px;
 	width: 300px;
 	height: 400px;
+}
+.cork-img img, .middelburg-img img, .cork-map img, .lvo-display img{
+	height: auto;
+	max-width: 100%;
+	object-fit: contain;
+	justify-self: center;
+	align-self: center;
+	margin-left: 2%;
+}
+.cork-map img, .lvo-display img{
+	max-width: 80%;
+	padding: 5%;
+}
+.profile-article article .cork-map, .profile-article article .lvo-display {
+	text-align: center;
 }
 /* Formatting the page Footer*/
 footer {
@@ -346,4 +453,65 @@ footer {
 	text-align: center;
 	font-size: 14px;
 	clear: both;
-}	
+}
+/* Adjusting layouts for smaller screen sizes */
+@media (max-width: 1200px){
+	main {
+		overflow: auto;
+	}
+	.index-article article {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: auto auto 33%;
+		grid-template-areas:
+		"index-content index-content" 
+		"index-content2 index-content2"
+		"cork-img middelburg-img";
+	}
+	.profile-article article .about-me {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-areas:
+		"profile"
+		"intro";
+	}
+	.cork-img img, .middelburg-img img, .cork-map img, .lvo-display img{
+		height: 100%;
+		max-width: auto;
+		margin-left: 0;
+	}
+	.profile-article article {
+		display: grid;
+		grid-template-columns: 50% 50%;
+		grid-gap: 0.5%;
+		grid-template-rows: repeat(3, auto);
+		grid-template-areas:
+		"about-me"
+		"about-cork cork-map"
+		"hobbies lvo-display";
+	}
+	.about-cork, .hobbies {
+		padding-left: 0;
+	}
+}
+@media (max-width: 960px){
+	.index-article article {
+		grid-template-columns: 100%;
+		grid-template-rows: auto auto 25% 25%;
+		grid-template-areas:
+		"index-content" 
+		"index-content2" 
+		"cork-img"
+		"middelburg-img";
+	}
+	.profile-article article {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: repeat(5, auto);
+		grid-template-areas:
+		"about-me"
+		"about-cork" 
+		"cork-map"
+		"hobbies" 
+		"lvo-display"
+	}
+}
